@@ -1,0 +1,102 @@
+html, body {
+	background-color: #333;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	color: #fff;
+	font-size: 25px;
+}
+
+.wrapper {
+	padding: 50px;
+}
+
+.page {
+}
+
+// 11111111 ====================================================================================================//
+
+.menu {
+
+	li {
+		position: relative;
+	}
+
+		&__list {
+			display: flex;
+			>li {
+				margin: 0px 10px 0px 0px;
+				&:hover .sub-menu__list {    //!!! При наведении будет выпадать меню
+					display: block;
+				}
+			}
+		}
+
+		&__link {
+		}
+}
+
+// 222222 ====================================================================================================//
+
+.sub-menu {
+
+		&__list {
+			display: none;
+			min-width: 300px;
+			position: absolute;
+			top: 20px;
+			padding: 20px 0px 0px 0px;   //!!! нужен чтобы убрать разрыв
+			left: 0;
+			>li {
+				background-color: #fff;
+				&:hover .sub-sub-menu__list{
+					display: block;
+				}
+			}
+		}
+
+		&__link {
+			color: #000;
+			display: inline-block;
+			padding: 5px 10px;
+		}
+}
+
+// 3333333 ====================================================================================================//
+
+.sub-sub-menu {
+
+		&__list {
+			display: none;
+			position: absolute;
+			top: 0;
+			left: 100%;
+			min-width: 300px;
+			padding: 0px 0px 0px 5px;   //!!! нужен чтобы убрать разрыв
+			li {
+				background-color: #000;
+			}
+		}
+
+		&__link {
+			color: #fff;
+			display: inline-block;
+			padding: 5px 10px;
+		}
+}
+
+// arrow ====================================================================================================//
+
+.menu {
+
+	&__arrow {
+	}
+}
+.arrow {  //!!! Рисуем треугольник
+	position: absolute;
+	right: 0;
+	top: 12px;
+	width: 0;
+	height: 0;
+	border-top: 10px solid #fff;
+	border-right: 10px solid transparent;
+	border-left: 10px solid transparent;
+}
