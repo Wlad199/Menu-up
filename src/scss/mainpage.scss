@@ -24,9 +24,6 @@ html, body {
 			display: flex;
 			>li {
 				margin: 0px 10px 0px 0px;
-				&:hover .sub-menu__list {    //!!! При наведении будет выпадать меню
-					display: block;
-				}
 			}
 		}
 
@@ -47,37 +44,11 @@ html, body {
 			left: 0;
 			>li {
 				background-color: #fff;
-				&:hover .sub-sub-menu__list{
-					display: block;
-				}
 			}
 		}
 
 		&__link {
 			color: #000;
-			display: inline-block;
-			padding: 5px 10px;
-		}
-}
-
-// 3333333 ====================================================================================================//
-
-.sub-sub-menu {
-
-		&__list {
-			display: none;
-			position: absolute;
-			top: 0;
-			left: 100%;
-			min-width: 300px;
-			padding: 0px 0px 0px 5px;   //!!! нужен чтобы убрать разрыв
-			li {
-				background-color: #000;
-			}
-		}
-
-		&__link {
-			color: #fff;
 			display: inline-block;
 			padding: 5px 10px;
 		}
@@ -91,12 +62,45 @@ html, body {
 	}
 }
 .arrow {  //!!! Рисуем треугольник
+	display: none;
 	position: absolute;
 	right: 0;
-	top: 12px;
+	top: 9px;
 	width: 0;
 	height: 0;
 	border-top: 10px solid #fff;
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
+	transition: all 0.3s ease 0s;
+	li._active &{
+			transform: rotate(-180deg);
+	}
+}
+
+
+body._pc .menu__list>li:hover .sub-menu__list {  //!!! Только при открытии на ПК
+	display: block;
+}
+body._pc .sub-menu__list>li:hover .sub-sub-menu__list {  //!!! Только при открытии на ПК
+	display: block;
+}
+
+body._pc a:hover {
+	text-decoration: underline;
+}
+
+li._active .sub-menu__list {
+	display: block;
+}
+
+body._touch .menu__link {
+	margin: 0px 25px 0px 0px;
+}
+
+li._active .sub-menu__list {
+	display: block;
+}
+
+body._touch .arrow {
+	display: block;
 }
